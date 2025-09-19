@@ -5,7 +5,7 @@ const readline = require('readline');
 const config = {
   host: '0b0t.org', // server address or IP
   port: 25565,              // server port
-  username: 'do_not_dusturb@outlook.com', // if auth:microsoft, can be your email; if offline, just the username
+  username: 'exampleemail@outlook.com', // if auth:microsoft, can be your email; if offline, just the username
   auth: 'microsoft',        // 'microsoft' (real account) or 'offline' (cracked server)
   allowedUuids: [
     // add the UUIDs of players you want to auto /tpaccept
