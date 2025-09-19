@@ -1,1 +1,1 @@
-## its a tpa bot for 0b0t, put your email and server ID into it, and in console run npm isntall and then run node bot.js then its gonna ask for password in console
+## if you know how to run and install node files your good, if you dont, just dm on discord (skobos only, if your someone else ignore this)
