@@ -9,12 +9,12 @@ const config = {
   auth: 'microsoft',        // 'microsoft' (real account) or 'offline' (cracked server)
   allowedUuids: [
     // add the FULL NOT TRIMMED, UUIDs of players you want to auto /tpaccept MAKE SURE YOU INCLUDE THE ' BEFORE AND AFTER!!!!
-    '11111111-2222-3333-4444-555555555555'
-    '22222222-5555-7777-8888-999999999999'
+    '11111111-2222-3333-4444-555555555555' // example uuid
+    '22222222-5555-7777-8888-999999999999' // example uuid
   ]
 };
 
-
+// spawn bot in etc
 const bot = mineflayer.createBot({
   host: config.host,
   port: config.port,
