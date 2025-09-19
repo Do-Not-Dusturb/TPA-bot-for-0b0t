@@ -4,12 +4,13 @@ const readline = require('readline');
 
 const config = {
   host: '0b0t.org', // server address or IP
-  port: 25565,              // server port
-  username: 'exampleemail@outlook.com', // if auth:microsoft, can be your email; if offline, just the username
+  port: 25565,              // server port (default)
+  username: 'exampleemail@outlook.com', // Type email you have your mc account on but if you want to use for cracked just type the username u want it
   auth: 'microsoft',        // 'microsoft' (real account) or 'offline' (cracked server)
   allowedUuids: [
-    // add the UUIDs of players you want to auto /tpaccept
+    // add the FULL NOT TRIMMED, UUIDs of players you want to auto /tpaccept MAKE SURE YOU INCLUDE THE ' BEFORE AND AFTER!!!!
     '11111111-2222-3333-4444-555555555555'
+    '22222222-5555-7777-8888-999999999999'
   ]
 };
 
@@ -21,7 +22,7 @@ const bot = mineflayer.createBot({
   auth: config.auth
 });
 
-// log helper
+// log helper etc etc
 function log(msg) {
   console.log(`[BOT] ${msg}`);
 }
@@ -76,7 +77,7 @@ rl.on('line', (line) => {
     bot.chat(line);
     log(`> Sent: ${line}`);
   } else {
-    // normal chat
+    // just makes what you see the bot name as on console
     bot.chat(line);
     log(`<You> ${line}`);
   }
