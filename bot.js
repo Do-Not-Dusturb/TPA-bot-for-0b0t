@@ -16,6 +16,7 @@ const config = {
     'a2a1738d-b327-4334-abd5-2ee177069a20', // skobos
     'ee0f6c25-6280-41fe-be0d-29099e1ae6e8', // Kuskowim
     '2caa9319-a609-4ee5-aa88-24c4e49bb567', // v0ee  
+    '6221c4ad-f58f-4afe-8136-80c142a9592c', // AutismEmperor
     
   ]
 };
