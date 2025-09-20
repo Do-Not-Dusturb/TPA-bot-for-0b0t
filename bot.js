@@ -1,20 +1,26 @@
 const mineflayer = require('mineflayer');
 const readline = require('readline');
 
-
+// === CONFIGURE HERE ===
 const config = {
   host: '0b0t.org', // server address or IP
-  port: 25565,              // server port (default)
-  username: 'exampleemail@outlook.com', // Type email you have your mc account on but if you want to use for cracked just type the username u want it
-  auth: 'microsoft',        // 'microsoft' (real account) or 'offline' (cracked server)
+  port: 25565,              // server port
+  username: 'email', // Microsoft email OR username (if offline)
+  auth: 'microsoft',        // 'microsoft' (premium) or 'offline' (cracked server)
   allowedUuids: [
-    // add the FULL NOT TRIMMED, UUIDs of players you want to auto /tpaccept MAKE SURE YOU INCLUDE THE ' BEFORE AND AFTER!!!!
-    '11111111-2222-3333-4444-555555555555' // example uuid
-    '22222222-5555-7777-8888-999999999999' // example uuid
+    // Add UUIDs of players who can auto-tpa
+    'da938cb6-af2c-4c45-affb-21ad639765eb', // sleepy
+    'cd03aee1-4396-46a5-8c3b-9f1d2cbbdb7c', // elvis
+    '9cb5f569-6f3d-4dcd-8135-85f04acb36e6', // socio
+    '1125d142-161e-4868-98c5-172020b244d2', // King_Hades_
+    'a2a1738d-b327-4334-abd5-2ee177069a20', // skobos
+    'ee0f6c25-6280-41fe-be0d-29099e1ae6e8', // Kuskowim
+    '2caa9319-a609-4ee5-aa88-24c4e49bb567', // v0ee  
+    
   ]
 };
 
-// spawn bot in etc
+// === CREATE BOT ===
 const bot = mineflayer.createBot({
   host: config.host,
   port: config.port,
@@ -22,39 +28,44 @@ const bot = mineflayer.createBot({
   auth: config.auth
 });
 
-// log helper etc etc
+// === HELPERS ===
 function log(msg) {
   console.log(`[BOT] ${msg}`);
 }
 
-
+// === EVENTS ===
 bot.once('spawn', () => {
   log(`Bot spawned as ${bot.username} (uuid: ${bot.uuid})`);
 });
 
 bot.on('chat', (username, message) => {
-  if (username === bot.username) return; // ignore itself
-  const parts = message.trim().toLowerCase().split(/\s+/);
-  if ((parts[0] === '/tpa' || parts[0] === 'tpa') && parts[1]) {
-    const target = parts[1];
-    if (target.toLowerCase() === bot.username.toLowerCase()) {
-      const player = bot.players[username];
-      const senderUuid = player && player.uuid ? player.uuid : null;
-
-      log(`TPA request from ${username} (uuid=${senderUuid || 'unknown'})`);
-      if (senderUuid && config.allowedUuids.includes(senderUuid)) {
-        log(`Auto-accepting tpa from ${username}`);
-        bot.chat('/tpaccept');
-      } else {
-        log(`Auto-denying tpa from ${username}`);
-        bot.chat('/tpdeny');
-      }
-    }
-  }
+  if (username === bot.username) return; // ignore self
+  log(`<${username}> ${message}`);
 });
 
 bot.on('message', (jsonMsg) => {
-  log(jsonMsg.toString());
+  const msg = jsonMsg.toString();
+  log(msg);
+
+  // Detect teleport request messages
+  if (msg.includes('wants to teleport to you')) {
+    const match = msg.match(/^(\w+)\s+wants to teleport to you/);
+    if (match) {
+      const username = match[1];
+      const player = bot.players[username];
+      const senderUuid = player && player.uuid ? player.uuid : null;
+
+      log(`TPA request detected from ${username} (uuid=${senderUuid || 'unknown'})`);
+
+      if (senderUuid && config.allowedUuids.includes(senderUuid)) {
+        log(`Auto-accepting TPA from ${username}`);
+        bot.chat(`/tpy ${username}`);
+      } else {
+        log(`Auto-denying TPA from ${username}`);
+        bot.chat(`/tpdeny ${username}`);
+      }
+    }
+  }
 });
 
 bot.on('kicked', (reason) => {
@@ -65,7 +76,7 @@ bot.on('error', (err) => {
   log(`Error: ${err.message}`);
 });
 
-
+// === CONSOLE CHAT ===
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -73,14 +84,10 @@ const rl = readline.createInterface({
 
 rl.on('line', (line) => {
   if (line.startsWith('/')) {
-    
-    bot.chat(line);
+    bot.chat(line); // send raw command
     log(`> Sent: ${line}`);
   } else {
-    // just makes what you see the bot name as on console
-    bot.chat(line);
+    bot.chat(line); // normal chat
     log(`<You> ${line}`);
   }
 });
-
-// made by Do-Not-Dusturb :O using mineflayer.
