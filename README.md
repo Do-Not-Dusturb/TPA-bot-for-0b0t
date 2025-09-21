@@ -1,1 +1,3 @@
-# TPA bot for 0b0t with console input (mirros chat message im too lazy to fix it) with discord chat bridge support.
+# TPA bot for 0b0t with console input (mirros chat message im too lazy to fix it) with discord chat bridge and mineflayer support.
+
+## to run take sure you install mineflayer and discord.js with npm
