@@ -1,1 +1,1 @@
-## if you know how to run and install node files your good, if you dont, just dm on discord (skobos only, if your someone else ignore this)
+# TPA bot for 0b0t with console input (mirros chat message im too lazy to fix it) with discord chat bridge support.
