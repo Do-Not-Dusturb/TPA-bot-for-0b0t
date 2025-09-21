@@ -15,7 +15,7 @@ const config = {
     ]
   },
   discord: {
-    token: 'MTQxO32TMyMDg2MTc1MT33Y0NDMhhwMw.GVj22r8s.mKYWffsPkrt3PgHuJksirnrxkMazJ2d44i1K3NdBsrM',      // example discord token
+    token: 'MTQxO32T2132ggggMyMDg2MTc1MT33Y0NDMhhwMw.GVj22r8s.mKYWffsPkrt3PgHuJksisadrnrxkMazJ2d44i1K3NdBsrM',      // example discord token
     channelId: '14298334112815937587'  // example channel ID
   }
 };
