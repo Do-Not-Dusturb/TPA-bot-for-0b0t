@@ -42,10 +42,25 @@ function startBot() {
   });
 
   bot.on('chat', (username, message) => {
-    if (username === bot.username) return;
-    log(`<${username}> ${message}`);
-    sendToDiscord(`**${username}:** ${message}`);
-  });
+  if (username === bot.username) return;
+
+  log(`<${username}> ${message}`);
+
+  // Create embed
+  const embed = {
+    embeds: [
+      {
+        color: 8d0202, //official sa color !!!
+        author: {
+          name: username,
+        },
+        description: message,
+        timestamp: new Date(),
+      },
+    ],
+  };
+  sendToDiscord(embed);
+});
 
   bot.on('message', (jsonMsg) => {
     const msg = jsonMsg.toString();
