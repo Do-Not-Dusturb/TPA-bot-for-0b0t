@@ -16,7 +16,7 @@ const config = {
   },
   discord: {
     token: 'MTQxO32T2132ggggMyMDg2MTc1MT33Y0NDMhhwMw.GVj22r8s.mKYWffsPkrt3PgHuJksisadrnrxkMazJ2d44i1K3NdBsrM',      // example discord token
-    channelId: '14298334112815937587'  // example channel ID
+    channelId: '142983341128185937587'  // example channel ID
   }
 };
 
@@ -50,7 +50,7 @@ function startBot() {
   const embed = {
     embeds: [
       {
-        color: 8d0202, //official sa color !!!
+        color: 0x8d0202, //official sa color !!!
         author: {
           name: username,
         },
