@@ -1,2 +1,8 @@
 # TPA bot for 0b0t
-## created by do-not-dusturb
+
+# Includes
+## > Admin commands (prefix ":")
+## > Discord bridge
+## > Tpa whitelist logic (duh)
+## > Bad chunk handeling
+## > Auto reconnect
