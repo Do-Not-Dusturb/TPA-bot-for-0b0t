@@ -1,4 +1,4 @@
-// Fully working tpa bot for 0b0t created but do-not-dusturb
+// Fully working tpa bot for 0b0t created by do-not-dusturb
 const mineflayer = require('mineflayer');
 const { pathfinder, Movements, goals } = require('mineflayer-pathfinder');
 const { Client, GatewayIntentBits } = require('discord.js');
