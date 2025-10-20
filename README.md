@@ -7,4 +7,4 @@
 ## > Bad chunk handeling
 ## > Auto reconnect
 
-Commaents created by Chat-GPT
+Comments created by Chat-GPT
