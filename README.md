@@ -6,3 +6,5 @@
 ## > Tpa whitelist logic (duh)
 ## > Bad chunk handeling
 ## > Auto reconnect
+
+Commaents created by Chat-GPT
